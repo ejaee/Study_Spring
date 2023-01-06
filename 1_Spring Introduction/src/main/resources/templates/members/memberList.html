@@ -1,0 +1,25 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<body>
+<div class="container">
+  <div>
+    <table>
+      <thead>
+      <tr>
+        <th>#</th>
+        <th>이름</th> </tr>
+      </thead>
+      <tbody>
+<!--      첫번째 Model 객체를 가져와서 member 에 담고-->
+<!--      id와 name 을 getId, getName 에 접근해서 가져온다-->
+<!--      그냥 member.id 인데 private의 값을 getter에 접근해 가져오는 건가???????????????????????-->
+      <tr th:each="member : ${members}">
+        <td th:text="${member.id}"></td>
+        <td th:text="${member.name}"></td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+</div> <!-- /container -->
+</body>
+</html>

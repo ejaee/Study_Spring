@@ -1,0 +1,21 @@
+<!--정적 컨텐츠-->
+<!--그냥 파일을 그대로 내려준다-->
+<!DOCTYPE HTML>
+<html>
+<head>
+  <title>static content</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+This is static content
+</body>
+</html>
+
+<!--원리-->
+
+<!--웹 브라우저에서-->
+<!--localhost:8080/hello-static.html 을 치면-->
+<!--내장 톰켓 서버가 요청을 받고 스프링에 넘기면-->
+<!--먼저 controller에서 hello-static 을 찾아보고 없으면-->
+<!--resources/static/에서 찾는다 -->
+<!--있으면 반환-->

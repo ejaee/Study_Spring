@@ -1,0 +1,23 @@
+<!--MVC-->
+
+<html xmlns:th="http://www.thymeleaf.org">
+<body>
+<p th:text="'hello ' + ${name}">hello! empty</p>
+</body>
+</html>
+
+<!--hello! empty 는 무엇인가? 안적어도 된다-->
+<!--thymeleaf의 장점으로 파일의 절대 경로를 복사하고-->
+<!--주소창에 붙여 넣으면 껍데기(hello! empty)를 볼 수 있다-->
+<!--서버없이 그냥 html을 만들어서 볼 때 사용되는 것-->
+
+<!--원리-->
+
+<!--웹 브라우저에서 주소 값을 넘기면-->
+<!--내장 톰켓 서버가 이를 받아 스프링에 던지고-->
+<!--spring 은 controller 에 맵핑이 되어있는지 확인하고 그 메서드를 호출한다-->
+<!--리턴과 모델을 확인하고 spring 에 넘겨준다-->
+<!--spring 은 viewResolver 가 template/ 에서 호출 메서드의 리턴 이름과 동일한 파일을 찾아서-->
+<!--thymeleaf 템플릿 엔젠에게 넘겨 처리를 요청-->
+<!--랜더링을 거쳐 변환된 html 이 웹브라우저에 반환-->
+
