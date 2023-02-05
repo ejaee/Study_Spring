@@ -16,6 +16,13 @@ import org.springframework.context.annotation.Configuration;
 @Configuration
 public class AppConfig { // 역할을 세우고 구현이 그 안에 들어가도록 refactor
 
+    // @Bean memberService -> new MemoryMemberRepository() 객체 생성
+    // @Bean orderService  new MemoryMemberRepository() 객체 생성
+
+    // 그러면  new MemoryMemberRepository() 이 두번 호출되는 것이 아닌가?
+    // = AppConfig@CGLIB -> 최초 객체 생성해서 스프링 컨테이너에 등록하고
+    // 이후부터는 스프링 컨테이너에서 찾아서 반환한다 즉, 만들어 지는 객체는 단 하나
+
     @Bean
     public MemberService memberService() {
         return new MemberServiceImpl(memberRepository()); // 생성자 주입

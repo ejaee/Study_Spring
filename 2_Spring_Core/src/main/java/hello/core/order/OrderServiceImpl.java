@@ -3,9 +3,12 @@ package hello.core.order;
 import hello.core.discount.DiscountPolicy;
 import hello.core.member.Member;
 import hello.core.member.MemberRepository;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
 // Policy 객체가 없으면 정책을 바꿀때마다 OrderService 객체를 바꿔야 한다
 // 단일 책밍 원칙이 잘 지켜진 것
+@Component
 public class OrderServiceImpl implements  OrderService{
 
 //    private final MemberRepository memberRepository = new MemoryMemberRepository();
@@ -17,6 +20,7 @@ public class OrderServiceImpl implements  OrderService{
     private final MemberRepository memberRepository;
     private final DiscountPolicy discountPolicy; // 추상에만 의존하도록 변경
 
+    @Autowired
     public OrderServiceImpl(MemberRepository memberRepository, DiscountPolicy discountPolicy) {
         this.memberRepository = memberRepository;
         this.discountPolicy = discountPolicy;
@@ -27,5 +31,10 @@ public class OrderServiceImpl implements  OrderService{
         Member member = memberRepository.findById(memberId);
         int discountPrice = discountPolicy.discount(member, itemPrice); // 미래 확장성을 위해 member 자체를 넘김. 상황에 따라 다르다
         return new Order(memberId,  itemName, itemPrice, discountPrice);
+    }
+
+    // for test
+    public MemberRepository getMemberRepository() {
+        return memberRepository;
     }
 }
