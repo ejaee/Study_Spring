@@ -14,8 +14,11 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+// http://localhost:8080/dir/new-form -> // /v4//new-form
+// http://localhost:8080/front-controller/v3/members/new-form
 @WebServlet(name = "frontControllerServletV3", urlPatterns = "/front-controller/v3/*")
 public class FrontControllerServletV3 extends HttpServlet {
+
 
     private Map<String, ControllerV3> controllerMap = new HashMap<>();
 
